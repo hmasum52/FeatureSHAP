@@ -89,10 +89,6 @@ class FeatureSHAP:
         if match:
             return match.group(1).strip()
 
-        match = re.search(r'`(.*?)`', text, re.DOTALL)
-        if match:
-            return match.group(1).strip()
-
         return text
 
     def _format(self, data):
@@ -412,8 +408,6 @@ class FeatureSHAP:
             self.baseline_texts = [baseline]
         else:
             self.baseline_texts = self._generate_baseline_batch(prompts)
-
-        print(self.baseline_texts)
 
         # Get all feature combination results (batched)
         all_feature_results = self._get_result_per_feature_combination_batch(prompts, sampling_ratio)
