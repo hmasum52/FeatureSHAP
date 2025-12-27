@@ -58,6 +58,14 @@ print(shapley_values)
 ```
 
 ## Citation
+```bibtex
+@article{vitale2025toward,
+  title={Toward Explaining Large Language Models in Software Engineering Tasks},
+  author={Vitale, Antonio and Nguyen, Khai-Nguyen and Poshyvanyk, Denys and Oliveto, Rocco and Scalabrino, Simone and Mastropaolo, Antonio},
+  journal={arXiv preprint arXiv:2512.20328},
+  year={2025}
+}
+```
 
 
 ## LICENSE
