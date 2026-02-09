@@ -13,6 +13,7 @@ from .models.model_base import ModelBase
 from .models.huggingface_model import HuggingFaceModel
 from .models.vllm_model import VLLMModel
 from .models.openai_model import OpenAIModel
+from .models.ollama_model import OllamaModel
 
 from .splitters.splitter_base import SplitterBase
 from .splitters.points_splitter import PointsSplitter
@@ -50,6 +51,7 @@ __all__ = [
     "HuggingFaceModel",
     "VLLMModel",
     "OpenAIModel",
+    "OllamaModel",
 
     # Comparators
     "ComparatorBase",
