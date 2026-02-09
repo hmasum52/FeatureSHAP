@@ -19,7 +19,13 @@ class HuggingFaceModel(ModelBase):
             generation_args (dict, optional): A dictionary of arguments for the
                 `generate` method of the Hugging Face model. Defaults to None.
         """
-        self.device = device
+        # Handle 'auto' device selection
+        if device == "auto":
+            self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        else:
+            self.device = device
+
+        print(f"Loading model '{model_name_or_path}' on device '{self.device}'...")
 
         # Load tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, padding_side='left')
@@ -32,7 +38,7 @@ class HuggingFaceModel(ModelBase):
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name_or_path,
             torch_dtype=torch.bfloat16,
-        ).to(device)
+        ).to(self.device)
 
         # Default generation args
         self.generation_args = generation_args or {
